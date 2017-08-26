@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import Header from '../../redux/containers/Header';
-import Sidebar from '../../components/Sidebar/';
+import Sidebar from '../../redux/containers/Sidebar';
 import Breadcrumb from '../../components/Breadcrumb/';
 import Aside from '../../components/Aside/';
 import Footer from '../../components/Footer/';

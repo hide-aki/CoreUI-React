@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import {Badge, Nav, NavItem} from 'reactstrap';
 import classNames from 'classnames';
-import nav from './_nav'
 
 class Sidebar extends Component {
 
@@ -26,6 +25,7 @@ class Sidebar extends Component {
   render() {
 
     const props = this.props;
+    const { sidebar } = this.props;
     const activeRoute = this.activeRoute;
     const handleClick = this.handleClick;
 
@@ -81,7 +81,7 @@ class Sidebar extends Component {
 
     // nav list
     const navList = (items) => {
-      return items.map( (item, index) => navLink(item, index) );
+      return items ? items.map( (item, index) => navLink(item, index) ) : '';
     };
 
     // sidebar-nav root
@@ -89,7 +89,7 @@ class Sidebar extends Component {
       <div className="sidebar">
         <nav className="sidebar-nav">
           <Nav>
-            {navList(nav.items)}
+            {navList(sidebar.nav)}
           </Nav>
         </nav>
       </div>

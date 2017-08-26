@@ -23,7 +23,7 @@ function callApi(endpoint, init, token) {
         }));
 }
 
-export const CALL_API = 'Call_API'
+export const CALL_API = 'Call_API';
 
 export default store => next => action => {
     const callAPI = action[CALL_API];
@@ -48,7 +48,7 @@ export default store => next => action => {
             return next({
                 response,
                 type: successType,
-            })
+            });
         },
         error => next({
             error: error.message || 'There was an error.',
