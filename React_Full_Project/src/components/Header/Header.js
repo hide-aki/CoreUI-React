@@ -48,8 +48,13 @@ class Header extends Component {
     e.preventDefault();
     document.body.classList.toggle('aside-menu-hidden');
   }
+  handleLogout(e) {
+        this.props.logout();
+  }
 
   render() {
+    const { auth } = this.props;
+    const { user } = auth;
     return (
       <header className="app-header navbar">
         <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>&#9776;</NavbarToggler>
@@ -79,8 +84,8 @@ class Header extends Component {
           <NavItem>
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <DropdownToggle className="nav-link dropdown-toggle">
-                <img src={'img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com"/>
-                <span className="d-md-down-none">admin</span>
+                <img src={user.portrait} className="img-avatar" alt="admin@bootstrapmaster.com"/>
+                <span className="d-md-down-none">{user.username}</span>
               </DropdownToggle>
               <DropdownMenu right className={this.state.dropdownOpen ? 'show' : ''}>
                 <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
@@ -95,7 +100,9 @@ class Header extends Component {
                 <DropdownItem><i className="fa fa-file"></i> Projects<Badge color="primary">42</Badge></DropdownItem>
                 <DropdownItem divider/>
                 <DropdownItem><i className="fa fa-shield"></i> Lock Account</DropdownItem>
-                <DropdownItem><i className="fa fa-lock"></i> Logout</DropdownItem>
+                <DropdownItem
+                    onClick={ this.handleLogout.bind(this) }
+                ><i className="fa fa-lock"></i> Logout</DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </NavItem>
