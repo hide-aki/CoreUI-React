@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Container, Row, Col, CardGroup, Card, CardBlock, Button, Input, InputGroup, InputGroupAddon} from "reactstrap";
+import {Alert, Container, Row, Col, CardGroup, Card, CardBlock, Button, Input, InputGroup, InputGroupAddon} from "reactstrap";
 
 import { Link } from 'react-router-dom';
 
@@ -39,11 +39,16 @@ class Login extends Component {
                              }
                       />
                     </InputGroup>
-                    <div>{error}</div>
+                      {error ?
+                       (<Alert color="danger">
+                             {error}
+                           </Alert>) : (<div/>)
+                      }
                     <Row>
                       <Col xs="6">
                         <Button color="primary" className="px-4"
                                 onClick={ this.handleLogin.bind(this) }
+                                disabled={fetching}
                         >Login</Button>
                       </Col>
                       <Col xs="6" className="text-right">

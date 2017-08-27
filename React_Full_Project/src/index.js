@@ -45,7 +45,7 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import '../scss/style.scss'
 
 // Containers
-import Full from './containers/Full/'
+import Full from './redux/containers/Full'
 
 // Views
 import Login from './redux/containers/login'

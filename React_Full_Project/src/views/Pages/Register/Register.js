@@ -55,6 +55,7 @@ class Register extends Component {
                   </InputGroup>
                   <Button color="success" block
                                   onClick={ this.handleRegister.bind(this) }
+                                  disabled={fetching}
                           >Create Account</Button>
                 </CardBlock>
                 <CardFooter className="p-4">
