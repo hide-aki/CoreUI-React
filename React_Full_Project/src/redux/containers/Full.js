@@ -3,18 +3,7 @@ import { connect } from 'react-redux';
 
 import Full from '../../containers/Full/';
 
-import { LOGIN_SUCCESS } from '../constants/auth';
-import Auth from '../Auth';
-
 class FullContainer extends Component {
-    componentDidMount() {
-        const { localLogin } = this.props;
-        const user = Auth.getUser();
-        if (user) {
-            localLogin(user);
-        }
-    }
-
     render() {
         return (
             <Full {...this.props}/>
@@ -25,13 +14,6 @@ class FullContainer extends Component {
 const mapStateToProps = state => ({
 });
 const mapDispatchToProps = (dispatch) => ({
-    localLogin: (user) => dispatch({
-        type: LOGIN_SUCCESS,
-        local: true,
-        response: {
-            user,
-        }
-    }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FullContainer);

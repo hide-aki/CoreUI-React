@@ -35,7 +35,7 @@ router.post('/login', async(req, res, next) => {
   const { username, password } = req.body;
   const token = new Buffer(await bcrypt.hash(username + moment().unix(), config.saltRounds)).toString('base64');
   user.token = token;
-  await redisClient.setex(token, 60 * 60 * 24, JSON.stringify(user));
+  await redisClient.set(token, JSON.stringify(user));
 
   res.json({
     success: true,
@@ -61,7 +61,7 @@ router.post('/register', async(req, res, next) => {
   const { username, email, password } = req.body;
   const token = new Buffer(await bcrypt.hash(username + moment().unix(), config.saltRounds)).toString('base64');
   user.token = token;
-  await redisClient.setex(token, 60 * 60 * 24, JSON.stringify(user));
+  await redisClient.set(token, JSON.stringify(user));
 
   res.json({
     success: true,

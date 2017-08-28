@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { login } from '../actions/auth';
 
 import LoginForm from '../../views/Pages/Login/';
+import Auth from '../Auth';
 
 class Login extends Component {
     transferToDashboardIfLoggedIn(){
@@ -18,6 +19,13 @@ class Login extends Component {
     }
     componentDidUpdate() {
         this.transferToDashboardIfLoggedIn();
+    }
+    componentDidMount() {
+        const { login } = this.props;
+        const user = Auth.getUser();
+        if (user && user.token ) {
+            login();
+        }
     }
 
     render() {

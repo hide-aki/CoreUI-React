@@ -1,3 +1,5 @@
+import Auth from '../Auth';
+
 // middleware： 简化fetch处理， 并且加上token
 function callApi(endpoint, init, token) {
     let headers = {
@@ -39,9 +41,9 @@ export default store => next => action => {
     next({ type: requestType });
 
     let token = null;
-    const auth = store.getState().auth;
-    if (auth.user.token) {
-        token = auth.user.token;
+    const user = Auth.getUser();
+    if (user && user.token) {
+        token = user.token;
     }
     return callApi(endpoint, init, token).then(
         response => {

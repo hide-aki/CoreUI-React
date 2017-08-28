@@ -35,10 +35,8 @@ const auth = (state = initialState, action) => {
                 fetching: true,
             };
         case ACTION.LOGIN_SUCCESS:
-            if (!action.local) {
-              Auth.setToken(action.response.user.token);
-              Auth.authenticateUser(action.response.user);
-            }
+            Auth.setToken(action.response.user.token);
+            Auth.authenticateUser(action.response.user);
             return {
                 ...state,
                 fetching: false,
