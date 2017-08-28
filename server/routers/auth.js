@@ -58,12 +58,13 @@ router.get('/userinfo', async(req, res, next) => {
 });
 
 router.post('/register', async(req, res, next) => {
+  const { username, email, password } = req.body;
   const token = new Buffer(await bcrypt.hash(username + moment().unix(), config.saltRounds)).toString('base64');
   user.token = token;
   await redisClient.setex(token, 60 * 60 * 24, JSON.stringify(user));
 
   res.json({
-    success: false,
+    success: true,
     user,
   });
 });
