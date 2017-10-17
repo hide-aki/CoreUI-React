@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Container, Row, Col, Card, CardBlock, CardFooter, Button, Input, InputGroup, InputGroupAddon} from "reactstrap";
+import React, {Component} from 'react';
+import {Container, Row, Col, Card, CardBody, CardFooter, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 
 class Register extends Component {
   handleRegister(e) {
@@ -14,7 +14,7 @@ class Register extends Component {
           <Row className="justify-content-center">
             <Col md="6">
               <Card className="mx-4">
-                <CardBlock className="card-body p-4">
+                <CardBody className="p-4">
                   <h1>Register</h1>
                   <p className="text-muted">Create your account</p>
                   <InputGroup className="mb-3">
@@ -53,11 +53,8 @@ class Register extends Component {
                                }
                        />
                   </InputGroup>
-                  <Button color="success" block
-                                  onClick={ this.handleRegister.bind(this) }
-                                  disabled={fetching}
-                          >Create Account</Button>
-                </CardBlock>
+                  <Button color="success" block>Create Account</Button>
+                </CardBody>
                 <CardFooter className="p-4">
                   <Row>
                     <Col xs="12" sm="6">

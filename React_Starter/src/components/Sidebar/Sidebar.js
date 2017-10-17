@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import {Badge, Nav, NavItem} from 'reactstrap';
+import {Badge, Nav, NavItem, NavLink as RsNavLink} from 'reactstrap';
+import isExternal from 'is-url-external';
 import classNames from 'classnames';
 import nav from './_nav';
 import SidebarFooter from './../SidebarFooter';
 import SidebarForm from './../SidebarForm';
 import SidebarHeader from './../SidebarHeader';
+import SidebarMinimizer from './../SidebarMinimizer';
 
 class Sidebar extends Component {
 
@@ -15,7 +17,6 @@ class Sidebar extends Component {
   }
 
   activeRoute(routeName, props) {
-    // return this.props.location.pathname.indexOf(routeName) > -1 ? 'nav-item nav-dropdown open' : 'nav-item nav-dropdown';
     return props.location.pathname.indexOf(routeName) > -1 ? 'nav-item nav-dropdown open' : 'nav-item nav-dropdown';
 
   }
@@ -54,12 +55,19 @@ class Sidebar extends Component {
 
     // nav item with nav link
     const navItem = (item, key) => {
-      const classes = classNames( "nav-link", item.class);
+      const classes = classNames( item.class );
+      const variant = classNames( "nav-link", item.variant ? `nav-link-${item.variant}` : "");
       return (
-        <NavItem key={key}>
-          <NavLink to={item.url} className={ classes } activeClassName="active">
-            <i className={item.icon}></i>{item.name}{badge(item.badge)}
-          </NavLink>
+        <NavItem key={key} className={classes}>
+          { isExternal(item.url) ?
+              <RsNavLink href={item.url} className={variant} activeClassName="active">
+                <i className={item.icon}></i>{item.name}{badge(item.badge)}
+              </RsNavLink>
+            :
+              <NavLink to={item.url} className={variant} activeClassName="active">
+                <i className={item.icon}></i>{item.name}{badge(item.badge)}
+              </NavLink>
+          }
         </NavItem>
       )
     };
@@ -98,6 +106,7 @@ class Sidebar extends Component {
           </Nav>
         </nav>
         <SidebarFooter/>
+        <SidebarMinimizer/>
       </div>
     )
   }

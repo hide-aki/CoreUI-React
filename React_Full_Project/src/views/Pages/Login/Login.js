@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Alert, Container, Row, Col, CardGroup, Card, CardBlock, Button, Input, InputGroup, InputGroupAddon} from "reactstrap";
+import React, {Component} from 'react';
+import {Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon} from 'reactstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -18,7 +18,7 @@ class Login extends Component {
             <Col md="8">
               <CardGroup className="mb-0">
                 <Card className="p-4">
-                  <CardBlock className="card-body">
+                  <CardBody>
                     <h1>Login</h1>
                     <p className="text-muted">Sign In to your account</p>
                     <InputGroup className="mb-3">
@@ -55,10 +55,10 @@ class Login extends Component {
                         <Button color="link" className="px-0">Forgot password?</Button>
                       </Col>
                     </Row>
-                  </CardBlock>
+                  </CardBody>
                 </Card>
                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: 44 + '%' }}>
-                  <CardBlock className="card-body text-center">
+                  <CardBody className="text-center">
                     <div>
                       <h2>Sign up</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
@@ -66,8 +66,8 @@ class Login extends Component {
                       <Link to="/register">
                       <Button color="primary" className="mt-3" active>Register Now!</Button>
                       </Link>
-                     </div>
-                  </CardBlock>
+                    </div>
+                  </CardBody>
                 </Card>
               </CardGroup>
             </Col>
