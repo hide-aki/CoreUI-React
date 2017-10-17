@@ -4,7 +4,7 @@ import * as ACTION from '../constants/sidebar';
 export const list = () => {
   return {
     [CALL_API]: {
-      endpoint: 'http://localhost:3000/nav/',
+      endpoint: '/nav/',
       init: {
         method: 'GET',
       },

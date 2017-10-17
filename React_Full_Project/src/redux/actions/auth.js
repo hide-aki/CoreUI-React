@@ -4,7 +4,7 @@ import * as ACTION from '../constants/auth';
 export const login = (auth) => {
   return {
     [CALL_API]: {
-      endpoint: 'http://localhost:3000/auth/login',
+      endpoint: '/auth/login',
       init: {
         method: 'POST',
         body: JSON.stringify(auth),
@@ -21,7 +21,7 @@ export const login = (auth) => {
 export const register = (auth) => {
   return {
     [CALL_API]: {
-      endpoint: 'http://localhost:3000/auth/register',
+      endpoint: '/auth/register',
       init: {
         method: 'POST',
         body: JSON.stringify(auth),
@@ -38,7 +38,7 @@ export const register = (auth) => {
 export const logout = () => {
   return {
     [CALL_API]: {
-      endpoint: 'http://localhost:3000/auth/logout',
+      endpoint: '/auth/logout',
       init: {
         method: 'GET',
       },

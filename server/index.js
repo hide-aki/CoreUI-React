@@ -63,4 +63,5 @@ fs.readdirSync(path.join(__dirname, 'routers')).forEach((file) => {
   }
 });
 
+app.use(express.static(path.join(__dirname, 'public')));
 server.listen(config.port);
