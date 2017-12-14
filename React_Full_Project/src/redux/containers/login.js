@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { login } from '../actions/auth';
 
-import LoginForm from '../../views/Pages/Login/';
+import LoginForm from '../../views/Pages/Login/Login';
 import Auth from '../Auth';
 
 class Login extends Component {
@@ -30,10 +30,9 @@ class Login extends Component {
 
     render() {
       const { auth, login } = this.props;
-
-        return (
-            <LoginForm auth={auth} login={login} />
-        );
+      return (
+        <LoginForm auth={auth} login={login} />
+      );
     }
 }
 

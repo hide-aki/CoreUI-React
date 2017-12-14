@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { list } from '../actions/sidebar';
 
-import Sidebar from '../../components/Sidebar/';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 class SidebarContainer extends Component {
     componentDidMount() {

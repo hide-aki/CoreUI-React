@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 import { logout } from '../actions/auth';
 
-import Header from '../../components/Header/';
+import Header from '../../components/Header/Header';
 
 class HeaderContainer extends Component {
     transferToDashboardIfLogout(){

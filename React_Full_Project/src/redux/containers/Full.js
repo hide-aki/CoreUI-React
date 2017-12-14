@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Full from '../../containers/Full/';
+import Full from '../../containers/Full/Full';
 
 class FullContainer extends Component {
     render() {

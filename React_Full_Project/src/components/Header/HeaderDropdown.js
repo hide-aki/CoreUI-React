@@ -23,12 +23,16 @@ class HeaderDropdown extends Component {
       dropdownOpen: !this.state.dropdownOpen
     });
   }
+  handleLogout(e) {
+    this.props.logout();
+  }
 
   dropAccnt() {
     return (
       <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle nav>
-          <img src={'img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com"/>
+          <img src={this.props.auth.user.portrait} className="img-avatar" alt="admin@bootstrapmaster.com"/>
+          <span className="d-md-down-none">{this.props.auth.user.username}</span>
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
@@ -43,7 +47,7 @@ class HeaderDropdown extends Component {
           <DropdownItem><i className="fa fa-file"></i> Projects<Badge color="primary">42</Badge></DropdownItem>
           <DropdownItem divider/>
           <DropdownItem><i className="fa fa-shield"></i> Lock Account</DropdownItem>
-          <DropdownItem><i className="fa fa-lock"></i> Logout</DropdownItem>
+          <DropdownItem onClick={ this.handleLogout.bind(this) }><i className="fa fa-lock"></i> Logout</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

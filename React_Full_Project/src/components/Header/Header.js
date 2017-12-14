@@ -35,13 +35,8 @@ class Header extends Component {
     e.preventDefault();
     document.body.classList.toggle('aside-menu-hidden');
   }
-  handleLogout(e) {
-        this.props.logout();
-  }
-
   render() {
-    const { auth } = this.props;
-    const { user } = auth;
+    const { auth, logout } = this.props;
     return (
       <header className="app-header navbar">
         <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
@@ -72,7 +67,7 @@ class Header extends Component {
           <NavItem className="d-md-down-none">
             <NavLink href="#"><i className="icon-location-pin"></i></NavLink>
           </NavItem>
-          <HeaderDropdown/>
+          <HeaderDropdown auth={auth} logout={logout}/>
         </Nav>
         <NavbarToggler className="d-md-down-none" onClick={this.asideToggle}>
           <span className="navbar-toggler-icon"></span>
